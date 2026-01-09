@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>菜单调试页面 - Redoop</title>
+    <link href="style/style.css" type="text/css" rel="stylesheet" />
+    <style>
+        .debug-panel {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: #f0f0f0;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 12px;
+            z-index: 9999;
+            max-width: 300px;
+        }
+        .debug-panel h3 { margin: 0 0 10px 0; color: #cd0005; }
+        .debug-panel ul { margin: 5px 0; padding-left: 20px; }
+        .debug-panel li { margin: 3px 0; }
+        .close-debug { float: right; cursor: pointer; color: #999; }
+    </style>
+</head>
+<body>
+    <div class="debug-panel" id="debugPanel">
+        <span class="close-debug" onclick="document.getElementById('debugPanel').style.display='none'">×</span>
+        <h3>Chrome 调试指南</h3>
+        <p><strong>F12 打开开发者工具</strong></p>
+        <ul>
+            <li>Elements 标签：检查HTML结构</li>
+            <li>Console 标签：查看JS错误</li>
+            <li>Network 标签：检查资源加载</li>
+        </ul>
+        <p><strong>常见问题检查：</strong></p>
+        <ul>
+            <li>CSS文件是否正确加载</li>
+            <li>图片路径是否正确</li>
+            <li>菜单hover效果是否正常</li>
+        </ul>
+    </div>
+
+    <header class="header" id="nav">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="images/logo.png" alt="Redoop Logo" /></a>
+            <nav class="main-nav">
+                <div class="dropdown">
+                    <a href="index.html" class="ecology_on">首页</a>
+                </div>
+                <div class="dropdown">
+                    <a href="solution-car.html" class="ecology">解决方案</a>
+                    <div class="dropdown-content">
+                        <a href="solution-car.html">汽车行业</a>
+                        <a href="solution-bank.html">银行金融</a>
+                        <a href="solution-government.html">政府行业</a>
+                        <a href="solution-communication.html">通信行业</a>
+                        <a href="solution-medicine.html">医疗行业</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="ecology-software.html" class="ecology">红象生态</a>
+                    <div class="dropdown-content">
+                        <a href="ecology-software.html">软件生态</a>
+                        <a href="ecology-hardware.html">硬件生态</a>
+                        <a href="ecology-education.html">教育生态</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="customer-case.html" class="ecology">客户案例</a>
+                    <div class="dropdown-content">
+                        <a href="customer-case.html">客户案例</a>
+                        <a href="case-industry.html">行业案例</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <div style="padding: 150px 20px; text-align: center;">
+        <h1>菜单调试页面</h1>
+        <p>使用Chrome开发者工具调试菜单问题：</p>
+        <ol style="text-align: left; max-width: 600px; margin: 20px auto;">
+            <li>按 F12 打开开发者工具</li>
+            <li>在 Elements 标签中检查 header 元素</li>
+            <li>在 Console 标签中查看是否有错误</li>
+            <li>检查 CSS 样式是否正确应用</li>
+            <li>测试鼠标悬停效果</li>
+        </ol>
+        
+        <div style="margin-top: 30px; padding: 20px; background: #f9f9f9; border-radius: 5px;">
+            <h3>快速检查清单：</h3>
+            <ul style="text-align: left; max-width: 400px; margin: 0 auto;">
+                <li>✓ CSS 文件加载正常</li>
+                <li>✓ 图片显示正常</li>
+                <li>✓ 菜单项对齐正确</li>
+                <li>✓ 下拉菜单显示正常</li>
+                <li>✓ 悬停效果工作正常</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // 简单的调试脚本
+        console.log('页面加载完成');
+        console.log('CSS 文件:', document.querySelector('link[href*="style.css"]') ? '已加载' : '未找到');
+        console.log('Logo 图片:', document.querySelector('.logo img') ? '已找到' : '未找到');
+        
+        // 检查下拉菜单
+        document.querySelectorAll('.dropdown').forEach((dropdown, index) => {
+            console.log(`下拉菜单 ${index + 1}:`, dropdown.querySelector('.dropdown-content') ? '有子菜单' : '无子菜单');
+        });
+    </script>
+</body>
+</html>
