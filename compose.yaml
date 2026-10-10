@@ -1,0 +1,22 @@
+# 平台在发布时读这些标签:
+#   - luffy.entrypoint=true + luffy.port: 对外服务与端口 (唯一)
+#   - luffy.database=postgres: 平台供给托管 Postgres 并注入 DATABASE_URL (可删, 自带数据库容器除外)
+#   - luffy.migrate: 切换新版前在该服务镜像里执行一次的迁移命令
+# 平台会自动注入资源限制与反代网络; 不要写 ports / privileged / host 网络.
+services:
+  web:
+    build: .
+    labels:
+      - "luffy.entrypoint=true"
+      - "luffy.port=3000"
+      - "luffy.database=postgres"
+      - "luffy.migrate=pnpm exec drizzle-kit migrate"
+    environment:
+      DATABASE_URL: ""
+      NODE_ENV: "production"
+    volumes:
+      - data:/data
+
+volumes:
+  data:
+    name: ${slug}-data

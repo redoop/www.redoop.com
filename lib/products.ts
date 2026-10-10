@@ -1,0 +1,13 @@
+export const products = {
+  zh: [
+    {id:'enterprise',n:'01',tag:'REDOOP ENTERPRISE',title:'Redoop 企业版',description:'以 Hadoop、HBase 为存储和计算核心，以 Ambari 为管理平台的大数据基础软件。',features:['商业技术支持','专家服务','企业级安全与高可用'],details:['提供电话、IM、邮件和现场等商业支持，官网列示最高故障响应级别为 7×24。','覆盖规划、实施、主动式巡检、故障协查、知识转移和重要时期保障。','支持 HDFS、YARN、HBase 高可用，通过 Kerberos、Ranger、OpenLDAP 支持访问与数据安全。'],icon:'▦'},
+    {id:'community',n:'02',tag:'REDOOP COMMUNITY',title:'Redoop 社区版',description:'开放的开源大数据生态，快速体验产品新特性，连接社区用户与开发者。',features:['快速迭代','开放生态','社区支持'],details:['产品快速迭代，方便用户体验新特性。','基于开源大数据生态，连接丰富的上下游社区项目。','依托广泛的社区用户与开发者支持，开展交流与实践。'],icon:'✧'},
+    {id:'cloud',n:'03',tag:'REDOOP CLOUD',title:'Redoop CLOUD',description:'快速部署和管理大数据集群，支持 AWS S3 等对象存储与统一权限安全增强。',features:['快速部署与管理','对象存储支持','专家支持与安全增强'],details:['面向云环境，轻松进行集群部署和管理。','支持 AWS S3 等对象存储，连接云端数据资源。','提供商业专家支持服务，支持统一权限安全增强。'],icon:'☁'}
+  ],
+  en: [
+    {id:'enterprise',n:'01',tag:'REDOOP ENTERPRISE',title:'Redoop Enterprise',description:'Big data infrastructure software with Hadoop and HBase as the storage and compute core, managed through Ambari.',features:['Commercial support','Expert services','Enterprise security & HA'],details:['Commercial support by phone, IM, email and on-site visits; the original site lists a highest fault response level of 7×24.','Covers planning, implementation, proactive inspection, joint troubleshooting, knowledge transfer and critical-period assurance.','HDFS, YARN and HBase high availability, with access and data security through Kerberos, Ranger and OpenLDAP.'],icon:'▦'},
+    {id:'community',n:'02',tag:'REDOOP COMMUNITY',title:'Redoop Community Edition',description:'An open big data ecosystem for trying new features early and connecting with community users and developers.',features:['Fast iteration','Open ecosystem','Community support'],details:['Rapid product iteration lets users try new features early.','Built on the open-source big data ecosystem with a rich set of upstream and downstream projects.','Backed by a broad community of users and developers for exchange and practice.'],icon:'✧'},
+    {id:'cloud',n:'03',tag:'REDOOP CLOUD',title:'Redoop CLOUD',description:'Deploy and manage big data clusters quickly, with support for object storage such as AWS S3 and unified permission security.',features:['Fast deployment & management','Object storage support','Expert support & security'],details:['Designed for cloud environments, making cluster deployment and management straightforward.','Supports object storage such as AWS S3 to connect cloud data resources.','Provides commercial expert support services and unified permission security enhancement.'],icon:'☁'}
+  ]
+};
+export type ProductItem = (typeof products)['zh'][number];

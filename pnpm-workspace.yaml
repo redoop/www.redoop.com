@@ -1,0 +1,7 @@
+allowBuilds:
+  # esbuild 的 optional deps 正常自带平台二进制; 允许 postinstall 是给
+  # install 被中断后二进制缺失的场景留兜底, 同时消掉每次 install 的
+  # ERR_PNPM_IGNORED_BUILDS 红字 (会把 LLM 带偏去修不存在的问题).
+  esbuild: true
+  sharp: false
+  unrs-resolver: false

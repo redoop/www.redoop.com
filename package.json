@@ -1,0 +1,34 @@
+{
+  "name": "luffy-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0",
+    "build": "next build",
+    "start": "next start -H 0.0.0.0",
+    "lint": "eslint",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:setup": "pnpm install --prefer-offline --no-frozen-lockfile && pnpm run db:migrate"
+  },
+  "dependencies": {
+    "drizzle-kit": "0.31.4",
+    "drizzle-orm": "0.44.2",
+    "next": "16.2.6",
+    "pg": "8.16.3",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/pg": "^8",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.6",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

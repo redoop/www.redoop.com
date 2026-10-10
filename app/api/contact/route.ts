@@ -1,0 +1,4 @@
+import {NextResponse} from 'next/server';
+import {getDb} from '@/lib/db';
+import {inquiries} from '@/db/schema';
+export async function POST(req:Request){try{const data=await req.json();const {name,company,email,phone,interest,message}=data;if(typeof name!=='string'||!name.trim()||name.length>80||typeof email!=='string'||email.length>200||!/^\S+@\S+\.\S+$/.test(email)||typeof message!=='string'||message.trim().length<5||message.length>3000||!['Redoop 企业版','Redoop 社区版','Redoop CLOUD','行业解决方案','其他合作'].includes(interest)||typeof company!=='string'||company.length>150||typeof phone!=='string'||phone.length>30)return NextResponse.json({error:'请检查填写内容'},{status:400});await getDb().insert(inquiries).values({name:name.trim(),company:company.trim(),email:email.trim(),phone:phone.trim(),interest,message:message.trim()});return NextResponse.json({success:true});}catch{return NextResponse.json({error:'提交失败，请稍后重试'},{status:500});}}
